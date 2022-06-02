@@ -1,0 +1,16 @@
+body {
+  padding-top: 10rem;
+}
+.card {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+main .myBtn {
+  border-radius: 0rem;
+  height: 4rem;
+}
+label {
+  padding-left: 2rem;
+  font-size: 1.6rem;
+  line-height: 1.5rem;
+}
