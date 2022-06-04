@@ -19,8 +19,8 @@ Besides, it's good to have an editor to work with the code like [VSCode](https:/
 
 <h3 id="objetivo">🎯 Goals</h3>
 
-- Getting better at programming in the only way it works...practicing
-- In this project I applied Bootstrap to make a nice and renponsive design and focus on the Javascript code. It was a easy project, but i learned about DOM and how to access the radio input and how to check if it's checked or not.   
+- Getting better at programming in the only way that works... by practicing
+- In this project I applied Bootstrap 5 to make a nice and responsive design and with that, I focused on the Javascript code. It was an easy project, but I learned about DOM, how to access the radio input, and how to verify if it is checked or not.   
   
 <h3 id="tecnologias">🛠 technologies</h3>
 
