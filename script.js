@@ -55,23 +55,19 @@ const answerB = document.getElementById('answer-b');
 const answerC = document.getElementById('answer-c');
 const answerD = document.getElementById('answer-d');
 const submitBtn = document.getElementById('btn');
-const radiosArr = document.getElementsByTagName('input');
-const a = document.getElementById('a');
-const b = document.getElementById('b');
-const c = document.getElementById('c');
-const d = document.getElementById('d');
+const radios = document.getElementsByTagName('input');
 const modal = document.querySelector('.modal');
 const result = document.querySelector('.modal-body');
 const closeModalBtn = document.querySelector('.btn-close');
 const tryAgainBtn = document.getElementById('tryAgain');
 
 let counter = 0;
-let answer = '';
 let score = 0;
 let currentQuestion = {};
-fillTheCard();
+
 function fillTheCard() {
   currentQuestion = quizData[counter];
+  
   if (counter < quizData.length) {
     question.innerHTML = `${currentQuestion.question}`;
     answerA.innerHTML = `${currentQuestion.firstOption}`;
@@ -79,22 +75,31 @@ function fillTheCard() {
     answerC.innerHTML = `${currentQuestion.thirdOption}`;
     answerD.innerHTML = `${currentQuestion.fourthOption}`;
   } else {
-    modal.classList.add('d-block');
-    result.innerHTML = `<p>You got ${score} out of 6 right!</p>`;
+    showResult();
   }
 }
 
-submitBtn.addEventListener('click', () => {
-  for (i = 0; i < radiosArr.length; i++) {
-    if (radiosArr[i].checked) {
-      answer = radiosArr[i].value;
+function checkOptions() {
+  let answer = '';
+  for (i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      answer = radios[i].value;
       if (answer == currentQuestion.correctAnswer) {
         score++;
       }
-      radiosArr[i].checked = false;
+      radios[i].checked = false;
       counter++;
     }
   }
+}
+
+function showResult() {
+  modal.classList.add('d-block');
+  result.innerHTML = `<p>You got ${score} out of 6 right!</p>`;
+}
+
+submitBtn.addEventListener('click', () => {
+  checkOptions();
   fillTheCard();
 });
 
@@ -106,3 +111,5 @@ tryAgainBtn.addEventListener('click', () => {
   modal.classList.remove('d-block');
   window.location.reload();
 })
+
+fillTheCard();
